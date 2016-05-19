@@ -1,0 +1,13 @@
+{
+  "version": 1.0,
+  "commands": [{
+    "command": "api-status",
+    "definition": "curl -I https://api.datarank.com 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+  }, {
+    "command": "storm-up",
+    "definition": "cd ~/workspace/datarank/ansible-playbooks/ && ansible-playbook deploy-maelstrom.yml -i inventory/production -vvvv --private-key=keys/id_ansibler -u ansibler"
+  }, {
+    "command": "cluster-size",
+    "definition": "curl -s whale01.ttagg.com:9200/topic-*/_search | jq .hits.total"
+  }]
+}
