@@ -12,7 +12,7 @@ class CommandRunner {
 
     val internalCommands = mapOf(
             Pair("help", Help()),
-            Pair("library", Library()),
+            Pair("list", Library()),
             Pair("add", Add()),
             Pair("remove", Remove())
     )

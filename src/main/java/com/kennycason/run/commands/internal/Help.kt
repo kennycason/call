@@ -14,6 +14,8 @@ class Help : InternalCommand {
                         "List all stored command with their definitions\n" +
                 "add <command> <definition>\n\t\t" +
                         "Add a new command with it's definition\n" +
+                "add <file/url>\n\t\t" +
+                        "Add new commands from an existing library file\n" +
                 "remove <command>\n\t\t" +
                         "Remove a command if exists\n" +
                 "help" +

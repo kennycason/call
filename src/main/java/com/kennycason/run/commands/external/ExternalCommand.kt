@@ -1,6 +1,6 @@
 package com.kennycason.run.commands.internal
 
-import com.kennycason.run.commands.external.Meta
+import com.kennycason.run.CommandLibrary
 import java.io.*
 import java.lang.instrument.ClassDefinition
 
@@ -14,11 +14,9 @@ class ExternalCommand : Command {
     val EXECUTION_SCRIPT = File(System.getProperty("user.home"), ".run.tmp.sh")
 
     val definition: String
-    val meta: Meta
 
-    constructor(definition: String, meta: Meta) {
+    constructor(definition: String) {
         this.definition = definition
-        this.meta = meta
     }
 
     override fun run(ignored : List<String>) {
@@ -40,7 +38,6 @@ class ExternalCommand : Command {
 
         // cleanup
         EXECUTION_SCRIPT.delete()
-        meta.useCount++
     }
 
 }

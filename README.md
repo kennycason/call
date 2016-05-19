@@ -18,6 +18,8 @@ run add l "ls -l"
 run add api-status "curl -I https://api.datarank.com 2>/dev/null | head -n 1 | cut -d$' ' -f2"
 run add storm-up "ansible-playbook deploy-storm.yml -i inventory/production -vvvv --private-key=keys/id_deployer -u deployer"
 run add cluster-size "curl -s whale01.ttagg.com:9200/topic-*/_search | jq .hits.total"
+run add http://kennycason.com/.run.library.json
+run add ~/bills_run_library.json
 ```
 
 ### Remove Command
@@ -69,7 +71,7 @@ run library
 - Import library from local file
 - Import library from GitHub/Url
 - Sorting by frequency used
-- Recording more stats: usage count, responses, etc
+- Recording stats: usage count, responses, etc
 - Better handling of library add/remove features. e.g. force-overwrite, etc
 
 
@@ -84,9 +86,6 @@ Currently there is only a bare-bone format defined.
         {
             "command": "l",
             "definition": "ls -l",
-            "meta": {
-                "usage_count": 10,
-            }
         }
     ]
 }
