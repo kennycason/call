@@ -18,7 +18,7 @@ run add l "ls -l"
 run add api-status "curl -I https://api.datarank.com 2>/dev/null | head -n 1 | cut -d$' ' -f2"
 run add storm-up "ansible-playbook deploy-storm.yml -i inventory/production -vvvv --private-key=keys/id_deployer -u deployer"
 run add cluster-size "curl -s whale01.ttagg.com:9200/topic-*/_search | jq .hits.total"
-run add http://kennycason.com/.run.library.json
+run add https://raw.githubusercontent.com/kennycason/run/master/src/main/resources/com/kennycason/run/library/.run.library.sample.json
 run add ~/bills_run_library.json
 ```
 
