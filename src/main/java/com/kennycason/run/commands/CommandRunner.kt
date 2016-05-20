@@ -11,9 +11,10 @@ class CommandRunner {
     val library = CommandLibrary()
 
     val internalCommands = mapOf(
+            Pair("add", Add()),
             Pair("help", Help()),
             Pair("list", Library()),
-            Pair("add", Add()),
+            Pair("version", PrintVersion()),
             Pair("remove", Remove())
     )
 

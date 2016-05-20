@@ -18,8 +18,10 @@ class Help : InternalCommand {
                         "Add new commands from an existing library file\n" +
                 "remove <command>\n\t\t" +
                         "Remove a command if exists\n" +
-                "help" +
-                        "\n\t\tDisplay current help method\n"
+                "help\n\t\t" +
+                        "Display current help method\n" +
+                "version \n\t\t" +
+                         "Print version\n"
         )
     }
 }
