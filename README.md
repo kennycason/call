@@ -105,3 +105,14 @@ Currently there is only a bare-bone format defined.
     ]
 }
 ```
+
+## Command Fun
+
+### Infinite Loop via Run!
+
+```bash
+> run add run "run run"
+command [run] added.
+        run run
+>un run
+````
