@@ -2,6 +2,7 @@ package com.kennycason.run
 
 import com.beust.klaxon.*
 import com.kennycason.run.Version
+import com.kennycason.run.commands.CommandRunner
 import com.kennycason.run.commands.internal.ExternalCommand
 import java.io.File
 import java.util.*
@@ -23,19 +24,23 @@ class CommandLibrary {
         if (library.contains(command)) {
             println("Warning, overwriting existing command.")
         }
+        if (CommandRunner().isInternalCommand(command)) {
+            throw RuntimeException("Command [$command] is a reserved command name")
+        }
         library[command] = ExternalCommand(definition)
         save(library)
-        println("command [" + command + "] added.")
+        println("command [$command] added.")
+        println("\t\t$definition")
     }
 
     fun remove(command: String) {
         val library = parse(readLibraryJson())
         if (!library.contains(command)) {
-            println("Warning, command [" + command + "] does not exist.")
+            println("Warning, command [$command] does not exist.")
         }
         library.remove(command)
         save(library)
-        println("command [" + command + "] removed.")
+        println("command [$command] removed.")
     }
 
     fun save(library: Map<String, ExternalCommand>) {
@@ -90,13 +95,13 @@ class CommandLibrary {
         try {
             return Parser().parse(COMMAND_LIBRARY_FILE.inputStream()) as JsonObject
         } catch (e : RuntimeException) {
-            throw RuntimeException("Encountered error when reading [" + COMMAND_LIBRARY_FILE.absoluteFile + "] file: " + e.message +
+            throw RuntimeException("Encountered error when reading [${COMMAND_LIBRARY_FILE.absoluteFile}] file: " + e.message +
                     "\nReturning empty library")
         }
     }
 
     private fun buildDefaultLibraryFile(): JsonObject {
-        println("No Library found, generating new one, [" + COMMAND_LIBRARY_FILE.absoluteFile + "]")
+        println("No Library found, generating new one, [${COMMAND_LIBRARY_FILE.absoluteFile}]")
         var libraryTemplate = "com/kennycason/run/library/template.json"
         return Parser().parse(
                 Thread.currentThread()

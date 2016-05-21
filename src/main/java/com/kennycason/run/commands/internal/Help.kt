@@ -8,8 +8,8 @@ import com.kennycason.run.commands.internal.InternalCommand
 class Help : InternalCommand {
     override fun run(command : List<String>) {
         println(
-                "<command1> [<command2> ...]\n\t\t" +
-                        "Run a list of stored commands\n" +
+                "<command> [arg1 arg2 ...]\n\t\t" +
+                        "Run a single command with optional arguments\n" +
                 "list\n\t\t" +
                         "List all stored command with their definitions\n" +
                 "add <command> <definition>\n\t\t" +

@@ -19,25 +19,39 @@ class ExternalCommand : Command {
         this.definition = definition
     }
 
-    override fun run(ignored : List<String>) {
+    override fun run(arguments : List<String>) {
         // prep
         EXECUTION_SCRIPT.createNewFile()
         EXECUTION_SCRIPT.printWriter().use { out ->
             out.write("#!/bin/bash\n")
-            out.write(definition)
+            out.write(insertArguments(definition, arguments))
         }
 
         // execute
         val process = Runtime.getRuntime().exec("bash " + EXECUTION_SCRIPT)
-        val reader = BufferedReader(InputStreamReader(process.getInputStream()))
-        reader.lines().forEach { line ->
+        // stdout
+        val stdOut = BufferedReader(InputStreamReader(process.inputStream))
+        stdOut.lines().forEach { line ->
             println(line)
         }
-        process.waitFor();
+        // stderr
+        val stdErr = BufferedReader(InputStreamReader(process.errorStream))
+        stdErr.lines().forEach { line ->
+            println(line)
+        }
+        process.waitFor()
         process.destroy()
 
         // cleanup
         EXECUTION_SCRIPT.delete()
+    }
+
+    private fun insertArguments(definition: String, arguments : List<String>): String {
+        var parameterReplacedDefinition = definition
+        arguments.forEachIndexed { i, argument ->
+            parameterReplacedDefinition = parameterReplacedDefinition.replace("@{${i + 1}}", argument)
+        }
+        return parameterReplacedDefinition
     }
 
 }

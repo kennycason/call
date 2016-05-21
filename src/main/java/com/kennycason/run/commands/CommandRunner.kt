@@ -32,23 +32,29 @@ class CommandRunner {
         }
 
         // assume a list of aliases
-        val definitions = library.all()
-        validateCommands(commands, definitions)
-        runExternalCommands(commands, definitions)
+        val library = library.all()
+        runExternalCommands(commands, library)
     }
 
-    private fun runExternalCommands(commands: List<String>, definitions: Map<String, ExternalCommand>) {
-        commands.forEach { command ->
-            definitions.get(command)!!.run(emptyList())
+    fun isInternalCommand(command: String): Boolean {
+        return internalCommands.contains(command)
+    }
+
+    private fun runExternalCommands(commandAndArguments: List<String>, library: Map<String, ExternalCommand>) {
+        val command = commandAndArguments.first()
+        val arguments = if (commandAndArguments.size == 1) {
+            emptyList<String>()
+        } else {
+            commandAndArguments.subList(1, commandAndArguments.size)
         }
+        validateCommand(command, library)
+        library.get(command)!!.run(arguments)
     }
 
-    private fun validateCommands(commands: List<String>, definitions: Map<String, ExternalCommand>) {
-        commands.forEach { command ->
-            if (!definitions.containsKey(command)) {
-                println("Command [" + command + "] not found, try \"list\" or \"help\" to see which commands are available.")
-                exitProcess(1)
-            }
+    private fun validateCommand(command: String, library: Map<String, ExternalCommand>) {
+        if (!library.containsKey(command)) {
+            println("Command [$command] not found, try \"list\" or \"help\" to see which commands are available.")
+            exitProcess(1)
         }
     }
 }

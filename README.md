@@ -22,6 +22,15 @@ run add https://raw.githubusercontent.com/kennycason/run/master/src/main/resourc
 run add ~/bills_run_library.json
 ```
 
+Add a command with parameter place holders via the @{} syntax
+```bash
+# add command
+run add l "ls -l @{1}"
+
+# run command
+run l /tmp/
+```
+
 ### Remove Command
 
 Remove a command from your local library.
@@ -34,9 +43,9 @@ run remove api-status
 run remove maelstrom-up
 ```
 
-### Run Command(s)
+### Run Command
 
-Run one or more commands. To run multiple commands simply append each command. e.g. `run command1 command2`
+Run one command with none or more arguments To run multiple commands simply append each command. e.g. `run command1 [arg1 args2 ...]`
 
 Example with sample output: 
 
@@ -48,6 +57,12 @@ Example with sample output:
 ```
 > run cluster-size
 1340411047
+```
+
+Example of passing in a single parameter
+```bash
+> run api-status http://api.datarank.com
+200
 ```
 
 ### Help
