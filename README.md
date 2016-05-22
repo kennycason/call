@@ -101,8 +101,6 @@ After installation the command name is `run`
 
 ## Coming Soon
 
-- Import library from local file
-- Import library from GitHub/Url
 - Sorting by frequency used
 - Recording stats: usage count, responses, etc
 - Better handling of library add/remove features. e.g. force-overwrite, etc
