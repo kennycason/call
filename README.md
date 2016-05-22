@@ -78,12 +78,12 @@ Prints a usage message
 run help
 ```
 
-### Library
+### List
 
 Prints a list of all commands and their definitions
 
 ```bash
-run library
+run list
 ```
 
 ### Install
