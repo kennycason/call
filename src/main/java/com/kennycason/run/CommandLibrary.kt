@@ -3,7 +3,7 @@ package com.kennycason.run
 import com.beust.klaxon.*
 import com.kennycason.run.Version
 import com.kennycason.run.commands.CommandRunner
-import com.kennycason.run.commands.internal.ExternalCommand
+import com.kennycason.run.commands.internal.StoredCommand
 import java.io.File
 import java.util.*
 
@@ -15,7 +15,7 @@ class CommandLibrary {
     val COMMAND_LIBRARY_FILE = File(System.getProperty("user.home"), ".run.library.json")
     val COMMAND_LIBRARY_FILE_BKP = File(System.getProperty("user.home"), ".run.library.json.bkp")
 
-    fun all(): Map<String, ExternalCommand> {
+    fun all(): Map<String, StoredCommand> {
         return parse(readLibraryJson())
     }
 
@@ -27,7 +27,7 @@ class CommandLibrary {
         if (CommandRunner().isInternalCommand(command)) {
             throw RuntimeException("Command [$command] is a reserved command name")
         }
-        library[command] = ExternalCommand(definition)
+        library[command] = StoredCommand(definition)
         save(library)
         println("command [$command] added.")
         println("\t\t$definition")
@@ -43,7 +43,7 @@ class CommandLibrary {
         println("command [$command] removed.")
     }
 
-    fun save(library: Map<String, ExternalCommand>) {
+    fun save(library: Map<String, StoredCommand>) {
         COMMAND_LIBRARY_FILE.renameTo(COMMAND_LIBRARY_FILE_BKP)
         COMMAND_LIBRARY_FILE.createNewFile()
         COMMAND_LIBRARY_FILE.printWriter().use { out ->
@@ -51,21 +51,21 @@ class CommandLibrary {
         }
     }
 
-    fun parse(libraryJson: JsonObject): MutableMap<String, ExternalCommand> {
+    fun parse(libraryJson: JsonObject): MutableMap<String, StoredCommand> {
         if (!libraryJson.contains("commands")) {
             throw RuntimeException("Field 'commands' was not present in library file!")
         }
 
-        val commands = mutableMapOf<String, ExternalCommand>()
+        val commands = mutableMapOf<String, StoredCommand>()
         libraryJson.array<JsonObject>("commands")!!.forEach { commandObject ->
             validateCommands(commandObject)
             commands[commandObject.string("command")!!] =
-                    ExternalCommand(commandObject.string("definition")!!)
+                    StoredCommand(commandObject.string("definition")!!)
         }
         return commands
     }
 
-    private fun libraryToJson(library: Map<String, ExternalCommand>): String {
+    private fun libraryToJson(library: Map<String, StoredCommand>): String {
         val libraryJson = JsonObject()
         libraryJson.put("version", Version().version)
 

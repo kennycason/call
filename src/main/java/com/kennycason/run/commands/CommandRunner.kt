@@ -40,7 +40,7 @@ class CommandRunner {
         return internalCommands.contains(command)
     }
 
-    private fun runExternalCommands(commandAndArguments: List<String>, library: Map<String, ExternalCommand>) {
+    private fun runExternalCommands(commandAndArguments: List<String>, library: Map<String, StoredCommand>) {
         val command = commandAndArguments.first()
         val arguments = if (commandAndArguments.size == 1) {
             emptyList<String>()
@@ -51,7 +51,7 @@ class CommandRunner {
         library.get(command)!!.run(arguments)
     }
 
-    private fun validateCommand(command: String, library: Map<String, ExternalCommand>) {
+    private fun validateCommand(command: String, library: Map<String, StoredCommand>) {
         if (!library.containsKey(command)) {
             println("Command [$command] not found, try \"list\" or \"help\" to see which commands are available.")
             exitProcess(1)

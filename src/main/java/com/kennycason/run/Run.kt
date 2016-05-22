@@ -10,6 +10,6 @@ fun main(commands : Array<String>) {
         CommandRunner().run(commands.asList())
     } catch (e: RuntimeException) {
         println(e.message)
-        e.printStackTrace()
+        //e.printStackTrace()
     }
 }
