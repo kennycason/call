@@ -130,5 +130,5 @@ Currently there is only a bare-bone format defined.
 > run add run "run run"
 command [run] added.
         run run
->un run
+>run run
 ````
