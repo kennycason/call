@@ -1,9 +1,7 @@
 Run
 ===
 
-A command line tool to organize commonly used commands and tasked. Commands are stored in the local json file: `~/.run.library.json`
-
-Currently Run depends on Bash to execute all commands.
+Aliases made simple. A command line tool to organize commonly used commands/tasks. Written in Kotlin.
 
 ## Usage
 
@@ -88,11 +86,7 @@ run list
 
 ### Install
 
-#### Brew Install
-
-(Coming soon)
-
-#### Manual Install from Sources
+#### Install from Bash Script.
 
 A helper script has been added to install Run. Java is required to run Run.
 The install downloads a jar from Maven Central.
@@ -100,6 +94,10 @@ The install downloads a jar from Maven Central.
 ```bash
 bash script/install.sh
 ```
+
+#### Brew Install
+
+(Coming soon)
 
 #### Maven Install (To include in other code)
 
@@ -135,6 +133,11 @@ Currently there is only a bare-bone format defined.
     ]
 }
 ```
+
+## Notes
+
+Currently Run depends on Bash to execute all commands.
+Commands are stored in the local json file: `~/.run.library.json`
 
 ## Command Fun
 
