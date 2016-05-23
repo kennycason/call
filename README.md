@@ -70,7 +70,7 @@ Example of passing in a single parameter
 
 ### Help
 
-Prints a usage message
+Prints a usage message. Help welcomed :)
 
 ```bash
 run help
