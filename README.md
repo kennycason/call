@@ -3,6 +3,10 @@ Run
 
 Aliases made simple. A command line tool to organize commonly used commands/tasks. Written in Kotlin.
 
+```bash
+brew install run
+```
+
 ## Usage
 
 ### Add Command
@@ -86,6 +90,12 @@ run list
 
 ### Install
 
+#### Brew Install
+
+```bash
+brew install run
+```
+
 #### Install (via Bash Script)
 
 A helper script has been added to install Run. Java is required to run.
@@ -94,10 +104,6 @@ The install is a single a jar from Maven Central.
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/kennycason/run/master/script/install.sh)
 ```
-
-#### Brew Install
-
-(Coming soon)
 
 #### Maven Install (To include in other code)
 

@@ -18,7 +18,7 @@ fi
 mkdir $APP_DIR
 
 wget $NEXUS_URL -O $APP_DIR/$JAR_FILE
-echo $'#!/bin/sh\n java -cp '$APP_DIR/$JAR_FILE' com.kennycason.run.RunKt "$@"' > $BINARY
+echo $'#!/bin/sh\n java -cp '$APP_DIR$JAR_FILE' com.kennycason.run.RunKt "$@"' > $BINARY
 chmod +x $BINARY
 
 run version
