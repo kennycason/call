@@ -88,13 +88,27 @@ run list
 
 ### Install
 
-Until a brew formula is added, a helper script has been added to install Run locally. Java and Maven are required.
-The install is simply a symlink to the generated jar for now.
+#### Brew Install
+
+(Coming soon)
+
+#### Manual Install from Sources
+
+A helper script has been added to install Run. Java is required to run Run.
+The install downloads a jar from Maven Central.
 
 ```bash
-git clone git@github.com:kennycason/run.git
-cd run/
-bash install.sh
+bash script/install.sh
+```
+
+#### Maven Install (To include in other code)
+
+```xml
+<dependency>
+    <groupId>com.kennycason</groupId>
+    <artifactId>run</artifactId>
+    <version>1.0</version>
+</dependency>
 ```
 
 After installation the command name is `run`

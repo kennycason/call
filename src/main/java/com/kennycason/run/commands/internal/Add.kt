@@ -61,7 +61,6 @@ class Add : InternalCommand {
         if (definition.length == 0) {
             throw RuntimeException("Command definition length can not be zero")
         }
-
     }
 
     private fun sanitize(definition: String): String {
