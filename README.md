@@ -86,13 +86,13 @@ run list
 
 ### Install
 
-#### Install from Bash Script.
+#### Install (via Bash Script)
 
-A helper script has been added to install Run. Java is required to run Run.
-The install downloads a jar from Maven Central.
+A helper script has been added to install Run. Java is required to run.
+The install is a single a jar from Maven Central.
 
 ```bash
-bash script/install.sh
+bash <(curl -s https://raw.githubusercontent.com/kennycason/run/master/script/install.sh)
 ```
 
 #### Brew Install
