@@ -2,7 +2,7 @@ class Call < Formula
   desc "Call: Aliases made easy"
   homepage "https://github.com/kennycason/call"
   url "http://search.maven.org/remotecontent?filepath=com/kennycason/call/1.0/call-1.0.jar"
-  sha256 "bad03409262be9b6ded7bd1a900209c13feecc415dcedad5b735ce76039f5f32"
+  sha256 "cb48bed0fb115f3849284467990e121a938897f67faef5c9d462af74af05887c"
 
   def install
     libexec.install "call-1.0.jar"
