@@ -4,7 +4,7 @@ Call
 Aliases made simple. A command line tool to organize commonly used commands/tasks. Written in Kotlin.
 
 ```bash
-brew install call
+brew install https://raw.githubusercontent.com/kennycason/call/master/script/brew/call.rb
 ```
 
 ## Usage
@@ -93,7 +93,7 @@ call list
 #### Brew Install
 
 ```bash
-brew install call
+brew install https://raw.githubusercontent.com/kennycason/call/master/script/brew/call.rb
 ```
 
 #### Install (via Bash Script)
