@@ -1,7 +1,7 @@
-package com.kennycason.run.commands.internal
+package com.kennycason.call.commands.internal
 
-import com.kennycason.run.CommandLibrary
-import com.kennycason.run.commands.PlaceHolderValidator
+import com.kennycason.call.CommandLibrary
+import com.kennycason.call.commands.PlaceHolderValidator
 import java.io.*
 import java.lang.instrument.ClassDefinition
 import java.util.regex.Pattern
@@ -13,7 +13,7 @@ import java.util.regex.Pattern
  * shell script, copies all commands to it, and runs the script.
  */
 class StoredCommand : Command {
-    val executionScript = File(System.getProperty("user.home"), ".run.tmp.sh")
+    val executionScript = File(System.getProperty("user.home"), ".call.tmp.sh")
     val placeHolderValidator = PlaceHolderValidator()
     val definition: String
 

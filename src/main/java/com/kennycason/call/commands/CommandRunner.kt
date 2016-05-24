@@ -1,7 +1,7 @@
-package com.kennycason.run.commands
+package com.kennycason.call.commands
 
-import com.kennycason.run.CommandLibrary
-import com.kennycason.run.commands.internal.*
+import com.kennycason.call.CommandLibrary
+import com.kennycason.call.commands.internal.*
 import kotlin.system.exitProcess
 
 /**

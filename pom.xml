@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kennycason</groupId>
-    <artifactId>run</artifactId>
-    <name>Run</name>
-    <description>Run is a command line shortcut tool</description>
-    <url>https://github.com/kennycason/run</url>
+    <artifactId>call</artifactId>
+    <name>Call</name>
+    <description>Call is a command line shortcut tool</description>
+    <url>https://github.com/kennycason/call</url>
     <version>1.0</version>
 
     <properties>
         <kotlin.version>1.0.2</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>com.kennycason.run.RunKt</main.class>
+        <main.class>com.kennycason.call.CallKt</main.class>
     </properties>
 
     <licenses>
@@ -36,19 +36,19 @@
             <roles>
                 <role>Developer</role>
             </roles>
-            <url>https://github.com/run</url>
+            <url>https://github.com/call</url>
         </developer>
     </developers>
 
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/kennycason/run/issues</url>
+        <url>https://github.com/kennycason/call/issues</url>
     </issueManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:kennycason/run.git</connection>
-        <developerConnection>scm:git:git@github.com:kennycason/run.git</developerConnection>
-        <url>https://github.com/kennycason/run</url>
+        <connection>scm:git:git@github.com:kennycason/call.git</connection>
+        <developerConnection>scm:git:git@github.com:kennycason/call.git</developerConnection>
+        <url>https://github.com/kennycason/call</url>
     </scm>
 
     <distributionManagement>

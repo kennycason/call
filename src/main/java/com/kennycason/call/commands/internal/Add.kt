@@ -1,9 +1,9 @@
-package com.kennycason.run.commands.internal
+package com.kennycason.call.commands.internal
 
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
-import com.kennycason.run.CommandLibrary
-import com.kennycason.run.commands.internal.InternalCommand
+import com.kennycason.call.CommandLibrary
+import com.kennycason.call.commands.internal.InternalCommand
 import java.io.File
 import java.net.MalformedURLException
 import java.net.URL
@@ -23,7 +23,7 @@ class Add : InternalCommand {
         }
         else {
             throw RuntimeException("Must provide a command name and definition. Found " + (commands.size - 1) + " arguments. " +
-                    "Be sure to add quotes around the command definition if definition contains spaces or multiple commands to run.")
+                    "Be sure to add quotes around the command definition if definition contains spaces or multiple commands to call.")
         }
     }
 

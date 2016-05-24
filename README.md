@@ -1,10 +1,10 @@
-Run
-===
+Call
+====
 
 Aliases made simple. A command line tool to organize commonly used commands/tasks. Written in Kotlin.
 
 ```bash
-brew install run
+brew install call
 ```
 
 ## Usage
@@ -17,25 +17,25 @@ Example:
 
 ```bash
 # add single commands
-run add l "ls -l"
-run add api-status "curl -I https://api.datarank.com 2>/dev/null | head -n 1 | cut -d$' ' -f2"
-run add storm-up "ansible-playbook deploy-storm.yml -i inventory/production -vvvv --private-key=keys/id_deployer -u deployer"
-run add cluster-size "curl -s whale01.ttagg.com:9200/topic-*/_search | jq .hits.total"
+call add l "ls -l"
+call add api-status "curl -I https://api.datarank.com 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+call add storm-up "ansible-playbook deploy-storm.yml -i inventory/production -vvvv --private-key=keys/id_deployer -u deployer"
+call add cluster-size "curl -s whale01.ttagg.com:9200/topic-*/_search | jq .hits.total"
 
 # import library from url
-run add https://raw.githubusercontent.com/kennycason/run/master/src/main/resources/com/kennycason/run/library/.run.library.sample.json
+call add https://raw.githubusercontent.com/kennycason/call/master/src/main/resources/com/kennycason/call/library/.call.library.sample.json
 
 # import library from file
-run add ~/.run.library.backup.json
+call add ~/.call.library.backup.json
 ```
 
 Add a command with parameter placeholders via the @{} syntax
 ```bash
 # add command with parameter placeholder 
-run add l "ls -l @{1}"
+call add l "ls -l @{1}"
 
 # run command
-run l /tmp/
+call l /tmp/
 ```
 
 ### Remove Command
@@ -45,30 +45,30 @@ Remove a command from your local library.
 Example: 
 
 ```bash
-run remove api-status
-run remove maelstrom-up
+call remove api-status
+call remove maelstrom-up
 ```
 
 ### Run Command
 
-Run one command with none or more arguments To run multiple commands simply append each command. e.g. `run command1 [arg1 args2 ...]`
+Run one command with none or more arguments To run multiple commands simply append each command. e.g. `call command1 [arg1 args2 ...]`
 
 Example with sample output: 
 
 ```bash
-> run api-status
+> call api-status
 200
 ```
 
 ```
-> run cluster-size
+> call cluster-size
 1340411047
 ```
 
 Example of passing in a single parameter
 ```bash
-> run add api-status "curl -I @{1} 2>/dev/null | head -n 1 | cut -d$' ' -f2"
-> run api-status http://api.datarank.com
+> call add api-status "curl -I @{1} 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+> call api-status http://api.datarank.com
 200
 ```
 
@@ -77,7 +77,7 @@ Example of passing in a single parameter
 Prints a usage message. Help welcomed :)
 
 ```bash
-run help
+call help
 ```
 
 ### List
@@ -85,7 +85,7 @@ run help
 Prints a list of all commands and their definitions
 
 ```bash
-run list
+call list
 ```
 
 ### Install
@@ -93,7 +93,7 @@ run list
 #### Brew Install
 
 ```bash
-brew install run
+brew install call
 ```
 
 #### Install (via Bash Script)
@@ -102,7 +102,7 @@ A helper script has been added to install Run. Java is required to run.
 The install is a single a jar from Maven Central.
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/kennycason/run/master/script/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/kennycason/call/master/script/install.sh)
 ```
 
 #### Maven Install (To include in other code)
@@ -110,12 +110,12 @@ bash <(curl -s https://raw.githubusercontent.com/kennycason/run/master/script/in
 ```xml
 <dependency>
     <groupId>com.kennycason</groupId>
-    <artifactId>run</artifactId>
+    <artifactId>call</artifactId>
     <version>1.0</version>
 </dependency>
 ```
 
-After installation the command name is `run`
+After installation the command name is `call`
 
 ## Coming Soon
 
@@ -124,7 +124,7 @@ After installation the command name is `run`
 - Better handling of library add/remove features. e.g. force-overwrite, etc
 
 
-## Library File Format [~/.run.library.json]
+## Library File Format [~/.call.library.json]
 
 Currently there is only a bare-bone format defined.
 
@@ -143,15 +143,15 @@ Currently there is only a bare-bone format defined.
 ## Notes
 
 Currently Run depends on Bash to execute all commands.
-Commands are stored in the local json file: `~/.run.library.json`
+Commands are stored in the local json file: `~/.call.library.json`
 
 ## Command Fun
 
 ### Infinite Loop via Run!
 
 ```bash
-> run add run "run run"
-command [run] added.
-        run run
->run run
+> call add call "call call"
+command [call] added.
+        call call
+>call call
 ````

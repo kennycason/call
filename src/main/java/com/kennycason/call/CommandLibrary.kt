@@ -1,9 +1,9 @@
-package com.kennycason.run
+package com.kennycason.call
 
 import com.beust.klaxon.*
-import com.kennycason.run.Version
-import com.kennycason.run.commands.CommandRunner
-import com.kennycason.run.commands.internal.StoredCommand
+import com.kennycason.call.Version
+import com.kennycason.call.commands.CommandRunner
+import com.kennycason.call.commands.internal.StoredCommand
 import java.io.File
 import java.util.*
 
@@ -12,8 +12,8 @@ import java.util.*
  *
  */
 class CommandLibrary {
-    val COMMAND_LIBRARY_FILE = File(System.getProperty("user.home"), ".run.library.json")
-    val COMMAND_LIBRARY_FILE_BKP = File(System.getProperty("user.home"), ".run.library.json.bkp")
+    val COMMAND_LIBRARY_FILE = File(System.getProperty("user.home"), ".call.library.json")
+    val COMMAND_LIBRARY_FILE_BKP = File(System.getProperty("user.home"), ".call.library.json.bkp")
 
     fun all(): Map<String, StoredCommand> {
         return parse(readLibraryJson())
@@ -102,7 +102,7 @@ class CommandLibrary {
 
     private fun buildDefaultLibraryFile(): JsonObject {
         println("No Library found, generating new one, [${COMMAND_LIBRARY_FILE.absoluteFile}]")
-        var libraryTemplate = "com/kennycason/run/library/template.json"
+        var libraryTemplate = "com/kennycason/call/library/template.json"
         return Parser().parse(
                 Thread.currentThread()
                         .contextClassLoader

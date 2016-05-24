@@ -1,7 +1,7 @@
 #!/bin/sh
 
 VERSION=1.0
-PROGRAM_NAME=run
+PROGRAM_NAME=call
 JAR_FILE=$PROGRAM_NAME-$VERSION.jar
 NEXUS_URL=http://search.maven.org/remotecontent?filepath=com/kennycason/$PROGRAM_NAME/$VERSION/$JAR_FILE
 BINARY_DIR=/usr/local/bin/
@@ -18,7 +18,7 @@ fi
 mkdir $APP_DIR
 
 wget $NEXUS_URL -O $APP_DIR/$JAR_FILE
-echo $'#!/bin/sh\n java -cp '$APP_DIR$JAR_FILE' com.kennycason.run.RunKt "$@"' > $BINARY
+echo $'#!/bin/sh\n java -cp '$APP_DIR$JAR_FILE' com.kennycason.call.CallKt "$@"' > $BINARY
 chmod +x $BINARY
 
 run version
