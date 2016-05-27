@@ -53,7 +53,7 @@ call remove maelstrom-up
 
 Run one command with none or more arguments To run multiple commands simply append each command. e.g. 
 
-`call command1 [arg1 args2 ...]`
+`call command [arg1 args2 ...]`
 
 Example with sample output: 
 
